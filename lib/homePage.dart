@@ -55,6 +55,34 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 22, 134, 80),
+        title: const Text(
+          "MultiProvider",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+      ),
+      body: MultiProvider(
+        providers: [
+          StreamProvider.value(
+            value: Stream<Seconds>.periodic(
+                const Duration(seconds: 1), (_) => Seconds()),
+            initialData: Seconds(),
+          ),
+          StreamProvider.value(
+            value: Stream<Minutes>.periodic(
+                const Duration(minutes: 1), (_) => Minutes()),
+            initialData: Minutes(),
+          ),
+        ],
+        child: const Row(
+          children: [
+           
+          ],
+        ),
+      ),
+    );
   }
 }
