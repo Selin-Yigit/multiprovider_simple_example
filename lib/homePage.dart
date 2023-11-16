@@ -79,7 +79,8 @@ class HomePage extends StatelessWidget {
         ],
         child: const Row(
           children: [
-           
+            SecondsWidget(),
+            MinutesWidget(),
           ],
         ),
       ),
